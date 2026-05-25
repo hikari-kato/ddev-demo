@@ -111,10 +111,26 @@ ddev wp plugin install seo-simple-pack --activate
 ddev wp plugin install flexible-table-block --activate
 
 echo ""
+echo "不要なデフォルトテーマを削除します..."
+
+ddev wp theme activate twentytwentyfive || true
+ddev wp theme delete twentytwentytwo --quiet || true
+ddev wp theme delete twentytwentythree --quiet || true
+ddev wp theme delete twentytwentyfour --quiet || true
+
+echo ""
 echo "パーマリンク設定を更新します..."
 
-ddev wp option update permalink_structure "/%postname%/"
+ddev wp option update permalink_structure "/%post_id%/"
 ddev wp rewrite flush
+
+PRIMARY_URL=$(ddev describe -j | php -r '
+  $json = stream_get_contents(STDIN);
+  $data = json_decode($json, true);
+  echo $data["raw"]["primary_url"] ?? "";
+')
+
+ADMIN_URL="${PRIMARY_URL}/wp-admin"
 
 echo ""
 echo "========================================"
@@ -122,12 +138,8 @@ echo "セットアップが完了しました！"
 echo "========================================"
 echo ""
 
-echo "サイトURL:"
-ddev describe | grep "Primary URL" || true
-
-echo ""
 echo "管理画面:"
-echo "https://${PROJECT_NAME}.ddev.site/wp-admin"
+echo "$ADMIN_URL"
 
 echo ""
 echo "ログイン情報:"
@@ -136,3 +148,7 @@ echo "パスワード: ${ADMIN_PASSWORD}"
 echo ""
 
 echo "ACF PROなど案件固有のプラグインは、必要に応じて管理画面から追加してください。"
+
+echo ""
+echo "管理画面をブラウザで開きます..."
+open "$ADMIN_URL"
