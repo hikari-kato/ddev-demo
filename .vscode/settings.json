@@ -1,0 +1,44 @@
+{
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "compressed",
+      "extensionName": ".css",
+      "savePath": "/common/css",
+      "savePathReplacementPairs": null
+    }
+  ],
+  // format : 出力するCSSの形式
+  // extensionName : 拡張子
+  // savePath : 出力先フォルダー
+  // savePathReplacementPairs :
+  "liveSassCompile.settings.compileOnWatch": false,
+  // Compile On Watch（監視開始時にコンパイル）
+  // false:しない
+  "liveSassCompile.settings.autoprefix": [">= 0.2% and not dead"],
+  // Autoprefix（自動ベンダープレフィックス）
+  // 「シェア10%以上のブラウザ・最新2バージョン」に対応するようにベンダープレフィックスをつける。ieは除く
+  "liveSassCompile.settings.generateMap": false,
+  "cSpell.words": [],
+  "editor.minimap.autohide": false,
+  "editor.minimap.enabled": false,
+  // Generate Map（mapファイルを作成）
+  // false：しない
+
+  "editor.formatOnSave": true,
+
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

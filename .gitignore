@@ -1,0 +1,51 @@
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Node / frontend
+# =========================
+node_modules/
+
+# 必要に応じて。ビルド成果物をGit管理しているなら削除
+dist/
+build/
+
+# =========================
+# WordPress / DDEV
+# =========================
+# DDEVで生成するWordPress本体
+public/
+
+# DBダンプやバックアップ
+*.sql
+*.sql.gz
+*.zip
+*.tar
+*.tar.gz
+
+# =========================
+# VS Code
+# =========================
+# チーム共有する設定は管理する
+.vscode/*
+
+!.vscode/settings.json
+!.vscode/extensions.json

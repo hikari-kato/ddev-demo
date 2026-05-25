@@ -1,0 +1,14 @@
+node_modules
+dist
+build
+vendor
+.cache
+
+*.min.js
+*.min.css
+
+*.php
+
+wp-admin
+wp-includes
+wp-content/uploads
