@@ -21,6 +21,16 @@ if ! command -v ddev >/dev/null 2>&1; then
   exit 1
 fi
 
+echo "DDEVプロジェクト名を確認します..."
+
+if [ -f ".ddev/config.yaml" ]; then
+  sed -i '' "s/^name: .*/name: ${PROJECT_NAME}/" .ddev/config.yaml
+  echo "DDEVプロジェクト名を ${PROJECT_NAME} に設定しました。"
+else
+  echo "エラー: .ddev/config.yaml が見つかりません。"
+  exit 1
+fi
+
 echo "DDEVを起動します..."
 ddev start
 
